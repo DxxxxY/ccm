@@ -44,6 +44,9 @@ ccm inject <cheat> ── Downloads and injects the selected cheat
 ## Credits
 > This project was possible using the help of these programs.
 
-Injector ── modified version of [martinjanas/RandoInjector](https://github.com/martinjanas/RandoInjector)
+- Injector ── modified version of [martinjanas/RandoInjector](https://github.com/martinjanas/RandoInjector)
 
-Bypass ── [danielkrupinski/VAC-Bypass-Loader](https://github.com/danielkrupinski/VAC-Bypass-Loader)
+- Bypass ── [danielkrupinski/VAC-Bypass-Loader](https://github.com/danielkrupinski/VAC-Bypass-Loader)
+
+## Exceptions
+- interium.dll ── [download, un-zip and drop this folder in %appdata%](https://mega.nz/file/dc8mCC7C#8qkdalh6m-DBOM1gFeD5tgAj8SJMG0eqgW30gka3UK4) (otherwise, will crash)

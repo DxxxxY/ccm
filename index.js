@@ -33,12 +33,24 @@ const checkOnline = async() => {
 }
 
 const inject = async() => {
-    if (await checkOnline()) console.log(`Found [${chalk.cyanBright(process.argv[3])}]`)
+    if (await checkOnline()) console.log(`Found [${chalk.cyanBright(process.argv[3])}] online`)
     else return console.log(`[${chalk.redBright(process.argv[3])}] not found\nType ${chalk.cyanBright("ccm list")} to view all cheats available for download`)
-    console.log(`Downloading [${chalk.cyanBright(process.argv[3])}]...`)
-        //if (fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
-    download(`https://dreamysoft.net/ccm/${process.argv[3]}`, `${__dirname}/files`).then(() => {
-        console.log(`Downloaded [${chalk.cyanBright(process.argv[3])}]`)
+    if (!fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) {
+        console.log(`Downloading [${chalk.cyanBright(process.argv[3])}]...`)
+            //if (fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
+        download(`https://dreamysoft.net/ccm/${process.argv[3]}`, `${__dirname}/files`).then(() => {
+            console.log(`Downloaded [${chalk.cyanBright(process.argv[3])}]`)
+            console.log(`Downloading [${chalk.cyanBright("Injector")}]...`)
+            download(`https://dreamysoft.net/utils/RandoInjector.exe`, `${__dirname}/files`).then(() => {
+                console.log(`Downloaded [${chalk.cyanBright("Injector")}]`)
+                console.log(`Injecting...`)
+                execSync(`start ${__dirname}/files/RandoInjector.exe ${__dirname}/files/${process.argv[3]}`, [], { shell: true })
+                    //fs.unlinkSync(`${__dirname}/files/RandoInjector.exe`)
+                    //fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
+            }).catch(err => console.log(err))
+        }).catch(err => console.log(err))
+    } else {
+        console.log(`[${chalk.cyanBright(process.argv[3])}] found in cache`)
         console.log(`Downloading [${chalk.cyanBright("Injector")}]...`)
         download(`https://dreamysoft.net/utils/RandoInjector.exe`, `${__dirname}/files`).then(() => {
             console.log(`Downloaded [${chalk.cyanBright("Injector")}]`)
@@ -46,8 +58,8 @@ const inject = async() => {
             execSync(`start ${__dirname}/files/RandoInjector.exe ${__dirname}/files/${process.argv[3]}`, [], { shell: true })
                 //fs.unlinkSync(`${__dirname}/files/RandoInjector.exe`)
                 //fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
-        })
-    }).catch(err => console.log(err))
+        }).catch(err => console.log(err))
+    }
 }
 
 switch (process.argv[2]) {
@@ -68,9 +80,9 @@ ccm inject <cheat> ── Downloads and injects the selected cheat`)
         break
     case "o":
     case "open":
-        console.log(`Launching ${chalk.cyanBright("[CS:GO]")}...`)
+        console.log(`Launching [${chalk.cyanBright("CS:GO")}]...`)
         exec("start steam://rungameid/730")
-        console.log(`Launched ${chalk.cyanBright("[CS:GO]")}`)
+        console.log(`Launched [${chalk.cyanBright("CS:GO")}]`)
         break
     case "b":
     case "bypass":
