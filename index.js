@@ -5,6 +5,7 @@ const download = require('download')
 const tabletojson = require('tabletojson').Tabletojson
 const fetch = require("node-fetch")
 const fs = require("fs")
+const { exec, execSync, spawn, spawnSync } = require("child_process")
 
 const list = () => {
     fetch("https://dreamysoft.net/ccm")
@@ -55,8 +56,41 @@ switch (process.argv[2]) {
             }).catch(err => console.log(err))
         })()
         break
+    case "csgo":
+    case "open":
+        console.log(`Launching ${chalk.cyanBright("[CS:GO]")}...`)
+        exec("start steam://rungameid/730")
+        console.log(`Launched ${chalk.cyanBright("[CS:GO]")}`)
+        break
+    case "b":
+    case "bypass":
+    case "vac":
+        download(`https://dreamysoft.net/utils/VAC-Bypass-Loader.exe`, `${__dirname}/files`).then(() => {
+            execSync(`${__dirname}/files/VAC-Bypass-Loader`)
+            fs.unlinkSync(`${__dirname}/files/VAC-Bypass-Loader`)
+        })
+        break
     case "i":
     case "inject":
+        //return console.log("In Progress")
+        if (!process.argv[3]) return console.log(`Missing <${chalk.redBright("cheat")}> argument`)
+        if (fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) {
+            download(`https://dreamysoft.net/utils/PE2HEX.py`, `${__dirname}/files`).then(() => {
+                let child = spawnSync(`start ${__dirname}/files/PE2HEX.py ${__dirname}/files/${process.argv[3]} --out ${__dirname}/files/temp.txt`, [], { shell: true })
+                console.log("1")
+                child.on('exit', () => {
+                    //fs.unlinkSync(`${__dirname}/files/PE2HEX.py`)
+                    console.log("2")
+                })
+                console.log("3")
+                    //console.log("txt")
+
+                //execSync(`start ${__dirname}/files/PE2HEX.py ${__dirname}/files/${process.argv[3]} --out ${__dirname}/files/temp.txt`)
+                // fs.unlinkSync(`${__dirname}/files/PE2HEX.py`)
+                //after its finished download injector and supply temp.txt
+            })
+        } else return console.log(`[${chalk.redBright(process.argv[3])}] not found\nMake sure you have downloaded it first`)
+
         //check if cheat exists
         //download memject.exe and launch with parameter
         break
