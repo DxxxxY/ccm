@@ -39,12 +39,12 @@ const inject = async() => {
         //if (fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
     download(`https://dreamysoft.net/ccm/${process.argv[3]}`, `${__dirname}/files`).then(() => {
         console.log(`Downloaded [${chalk.cyanBright(process.argv[3])}]`)
-        console.log(`Downloading [${chalk.cyanBright("Injector")}...`)
+        console.log(`Downloading [${chalk.cyanBright("Injector")}]...`)
         download(`https://dreamysoft.net/utils/RandoInjector.exe`, `${__dirname}/files`).then(() => {
-            console.log(`Downloaded [${chalk.cyanBright("Injector")}`)
+            console.log(`Downloaded [${chalk.cyanBright("Injector")}]`)
             console.log(`Injecting...`)
             execSync(`start ${__dirname}/files/RandoInjector.exe ${__dirname}/files/${process.argv[3]}`, [], { shell: true })
-            fs.unlinkSync(`${__dirname}/files/RandoInjector.exe`)
+                //fs.unlinkSync(`${__dirname}/files/RandoInjector.exe`)
                 //fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`)
         })
     }).catch(err => console.log(err))
