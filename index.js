@@ -57,10 +57,9 @@ switch (process.argv[2]) {
 ccm ── Main command / About
 ccm help ── Help
 ccm list ── List of all cheats hosted online
-ccm down <cheat> ── Downloads the selected cheat
 ccm open ── Opens CS:GO
 ccm bypass ── Launches VAC Bypass (may need to be launched twice)
-ccm inject ── Injects the selected cheat (needs to be downloaded first)`)
+ccm inject <cheat> ── Downloads and injects the selected cheat`)
         break
     case "l":
     case "list":

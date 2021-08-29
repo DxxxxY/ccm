@@ -23,6 +23,13 @@ CLI for the CS:GO cheating community. Makes your life easier.
 └── touch@3.1.0
 ```
 
+## Instructions
+
+1. Clone this repository. <kbd>git clone https://github.com/DxxxxY/ccm.git</kbd>
+2. Install node dependencies. <kbd>npm i</bkd>
+3. Install ccm globally. <kbd>npm i -g</kbd>
+
+
 ## Commands
 > There are numerous aliases to the commands, for an example, the first letter of every command.
 ```
