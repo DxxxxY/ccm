@@ -9,6 +9,7 @@ npm install ccm-cli -g
 
 ## Commands
 > There are numerous aliases to the commands, for an example, the first letter of every command.
+>> You would probably need to start the terminal with administrator.
 
 ```
 ccm ── Main command / About
