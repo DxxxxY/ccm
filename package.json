@@ -1,11 +1,16 @@
 {
     "name": "ccm-cli",
-    "version": "1.0.2",
-    "description": "",
+    "version": "1.1.0",
+    "description": "CS:GO Cheat Manager",
     "main": "index.js",
-    "keywords": [],
+    "homepage": "https://github.com/DxxxxY/ccm",
+    "keywords": ["csgo", "cheat", "manager", "cli", "dll", "inject", "crack"],
     "author": "DxxxxY",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DxxxxY/ccm.git"
+    },
     "bin": {
         "ccm": "./index.js"
     },
