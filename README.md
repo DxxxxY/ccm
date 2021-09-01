@@ -1,6 +1,8 @@
 # CCM
 Open-Source CLI for the CS:GO cheating community. Makes your life easier.
 
+![demo](https://www.youtube.com/watch?v=dwbcLCV_KZk)
+
 ## Table of Contents
 [Installing](#installing) |
 [Features](#features) |
@@ -26,6 +28,9 @@ It's safe!
 
 - Cheats are either compiled from github source or taken from yougame.biz (reputable russian cheat forum)
 
+Incredibly lightweight!
+
+- ~3kb to download, excluding stuff it downloads, excluding npm dependencies
 ## Commands
 > There are numerous aliases to the commands, for an example, the first letter of every command.
 ```
