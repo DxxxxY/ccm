@@ -1,12 +1,12 @@
 # CCM
 Open-Source CLI for the CS:GO cheating community. Makes your life easier.
 
-![demo](https://www.youtube.com/watch?v=dwbcLCV_KZk)
+https://user-images.githubusercontent.com/42523606/131750877-876d9f51-dd6a-434d-b8d3-e91869431e23.mp4
 
 ## Table of Contents
 [Installing](#installing) |
 [Features](#features) |
-[Commands](#Commands) |
+[Commands](#commands) |
 [Path](#path) |
 [Cheats](#list-of-cheats) |
 [Exceptions](#exceptions) |
