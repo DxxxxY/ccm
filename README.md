@@ -1,6 +1,8 @@
 # CCM
 Open-Source CLI for the CS:GO cheating community. Makes your life easier.
 
+# <p style="color: red;">WARNING: SEVERALY OUTDATED</p> SINCE THE RIPTIDE UPDATE, MOST FREE CHEATS DIED AND I NO LONGER PLAY CS. FEEL FREE TO REPLACE `repoDLL` WITH YOUR OWN CDN OF DLLS. USE MY `repoUtils` AT YOUR OWN RISK. VAC-BYPASS MIGHT BE PATCHED (RUMOURS) AND INJECTOR IS THE MOST DETECTED PIECE OF SHIT I'VE EVER SEEN IT'S ONLY UD CAUSE OF BYPASS.
+
 https://user-images.githubusercontent.com/42523606/131750877-876d9f51-dd6a-434d-b8d3-e91869431e23.mp4
 
 ## Table of Contents
@@ -54,7 +56,7 @@ Cheats, injector and bypass gets downloaded to:
 %appdata%/npm/node_modules/ccm-cli/files
 ```
 
-## List of cheats
+## List of cheats (refer to big red warning tag at the top)
 > Accessible through the <kbd>ccm l</kbd> command.
 
 > If you ever want me to add a cheat, open an issue on github (must be from somewhere trusted).

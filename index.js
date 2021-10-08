@@ -7,8 +7,11 @@ const fetch = require("node-fetch")
 const fs = require("fs")
 const execSync = require("child_process").execSync
 
+const repoDLL = "https://dreamysoft.net/ccm"
+const repoUtils = "https://dreamysoft.net/utils"
+
 const list = () => {
-    fetch("https://dreamysoft.net/ccm")
+    fetch(repoDLL)
         .then(res => res.text())
         .then(text => {
             console.log("├── Name ── Last modified ── Size")
@@ -21,7 +24,7 @@ const list = () => {
 
 const checkOnline = async() => {
     let found = false
-    await fetch("https://dreamysoft.net/ccm")
+    await fetch(repoDLL)
         .then(res => res.text())
         .then(text => {
             tabletojson.convert(text)[0].forEach(obj => {
@@ -38,10 +41,10 @@ const inject = async() => {
     if (!fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) {
         console.log(`Downloading [${chalk.cyanBright(process.argv[3])}]...`)
             //if (fs.existsSync(`${__dirname}/files/${process.argv[3]}`)) fs.unlinkSync(`${__dirname}/files/${process.argv[3]}`) //test
-        download(`https://dreamysoft.net/ccm/${process.argv[3]}`, `${__dirname}/files`).then(() => {
+        download(`${repoDLL}/${process.argv[3]}`, `${__dirname}/files`).then(() => {
             console.log(`Downloaded [${chalk.cyanBright(process.argv[3])}]`)
             console.log(`Downloading [${chalk.cyanBright("Injector")}]...`)
-            download(`https://dreamysoft.net/utils/RandoInjector.exe`, `${__dirname}/files`).then(() => {
+            download(`${repoUtils}/RandoInjector.exe`, `${__dirname}/files`).then(() => {
                 console.log(`Downloaded [${chalk.cyanBright("Injector")}]`)
                 console.log(`Injecting...`)
                 execSync(`start ${__dirname}/files/RandoInjector.exe ${__dirname}/files/${process.argv[3]}`, [], { shell: true })
@@ -52,7 +55,7 @@ const inject = async() => {
     } else {
         console.log(`[${chalk.cyanBright(process.argv[3])}] found in cache`)
         console.log(`Downloading [${chalk.cyanBright("Injector")}]...`)
-        download(`https://dreamysoft.net/utils/RandoInjector.exe`, `${__dirname}/files`).then(() => {
+        download(`${repoUtils}/RandoInjector.exe`, `${__dirname}/files`).then(() => {
             console.log(`Downloaded [${chalk.cyanBright("Injector")}]`)
             console.log(`Injecting...`)
             execSync(`start ${__dirname}/files/RandoInjector.exe ${__dirname}/files/${process.argv[3]}`, [], { shell: true })
@@ -87,7 +90,7 @@ ccm inject <cheat> ── Downloads and injects the selected cheat`)
     case "b":
     case "bypass":
         console.log(`Downloading [${chalk.cyanBright("VAC Bypass")}]...`)
-        download(`https://dreamysoft.net/utils/VAC-Bypass-Loader.exe`, `${__dirname}/files`).then(() => {
+        download(`${repoUtils}/VAC-Bypass-Loader.exe`, `${__dirname}/files`).then(() => {
             console.log(`Downloaded [${chalk.cyanBright("VAC Bypass")}]`)
             execSync(`start ${__dirname}/files/VAC-Bypass-Loader.exe`)
             console.log("If steam does not open, re-execute the command")
